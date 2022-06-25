@@ -84,10 +84,14 @@ h6 {
 /* Глобальные стили */
 
 * {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Roboto, Roboto, Helvetica, Arial, sans-serif;
 }
 #main__wrapper {
-  min-height: 100vh;
-  background-color: #f0f0f2;
+	min-height: 100vh;
+	background-color: #f0f0f2;
+
+	display: flex;
+    justify-content: center;
+    align-items: center;
 }
 </style>
