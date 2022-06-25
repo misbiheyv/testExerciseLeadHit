@@ -1,24 +1,11 @@
+import AuthService from '../services/auth.service.js'
+
 export const auth = {
     namespaced: true,
 
     actions: {
         async login({ state }, siteId) {
-            try {
-                const res = await fetch(state.LOGIN_URL, {
-                    method: 'GET',
-                    headers: {
-                        'Api-Key':'5f8475902b0be670555f1bb3:eEZn8u05G3bzRpdL7RiHCvrYAYo',
-                        'Leadhit-Site-Id': `${siteId}`
-                    }
-                });
-    
-                if(res && res.ok) return {success: res.ok, siteId}
-    
-                return {success: false, error: 'Invalid'}
-            } catch (err) {
-                console.log(err)
-                return {success: false, error: 'Unknown'}
-            }
+            return await new AuthService().login(state.LOGIN_URL ,siteId)
         },
         saveId({ state }, siteId) {
             localStorage.setItem(state.ID_KEY, siteId)

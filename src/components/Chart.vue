@@ -58,6 +58,15 @@ export default {
             myTheme.rule("ColorSet").set("colors", [
                 am5.color(0x994df7),
             ]);
+            myTheme.rule("AxisTick").setAll({
+                visible: false
+            });
+            myTheme.rule("Grid").setAll({
+                strokeOpacity: 0
+            });
+            myTheme.rule("Grid", ["base"]).setAll({
+                strokeOpacity: 1
+            });
 
             root.setThemes([
                 am5themes_Animated.new(root),
@@ -82,10 +91,6 @@ export default {
                     renderer: am5xy.AxisRendererY.new(root, {})
                 })
             );
-            yAxis.get("renderer").grid.template.setAll({
-                strokeWidth: 0,
-                visible:false
-            });
 
 
             const xAxis = chart.xAxes.push(
@@ -94,12 +99,6 @@ export default {
                     renderer: am5xy.AxisRendererX.new(root, {})
                 })
             );
-            xAxis.get("renderer").grid.template.setAll({
-                location: 0,
-                strokeWidth: 0,
-                visible:false
-            });
-            xAxis.get("dateFormats")["day"] = "MM/dd";
             xAxis.get("periodChangeDateFormats")["day"] = "MMMM";
 
             function createSeries(name, field) {
