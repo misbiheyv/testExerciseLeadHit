@@ -7,7 +7,7 @@ const routes = [
     component: () => import('../views/Authorization.vue')
   },
   {
-    path: '/',
+    path: '/analytics',
     name: 'analytics',
     component: () => import('../views/Analytics.vue')
   }

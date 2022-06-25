@@ -1,5 +1,7 @@
 <template>
-    <div></div>
+    <div>
+        Аналитика
+    </div>
 </template>
 
 <script>

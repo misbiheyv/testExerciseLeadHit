@@ -9,7 +9,7 @@
                 v-model="siteId"
             />
             <div class="error" :class="showLoginError?'visible':''" >
-                Id введен некорректно
+                {{ errorMessage }}
             </div>
             <button class="auth-form__button" @click.prevent="onLogin">Войти</button>
         </form>
@@ -19,22 +19,43 @@
 <script>
 import { mapActions } from 'vuex';
 
+const errorMessages = {
+    shortId: 'Id введен некорректно.',
+    invalidId: 'Не удалось войти. Попробуйте еще раз или измените id.',
+    unknownError: 'Проблемы с выполнением запроса. Попробуйте еще раз или повторите попытку через некоторое время',
+}
+
 export default {
     data() {
         return {
             siteId: '',
-            showLoginError: false
+            showLoginError: false,
+            errorMessage: errorMessages.shortId
         }
     },
     methods: {
         ...mapActions({
-            login: 'auth/login'
+            login: 'auth/login',
+            saveId: 'auth/saveId'
         }),
-        onLogin() {
-            if (this.siteId.length === 24) {
-                return this.login(this.siteId)
+        async onLogin() {
+            if (this.siteId.length !== 24) {
+                return this.showLoginError = true;
             }
-            this.showLoginError = true;
+            const res = await this.login(this.siteId)
+
+            if (!res.success) {
+
+                this.errorMessage = res.error === 'Invalid' 
+                    ? errorMessages.invalidId
+                    : errorMessages.unknownError
+
+                this.showLoginError = true
+                return ;
+            }
+
+            this.saveId(res.siteId)
+            this.$router.push('analytics')
         }
     },
     watch: {
