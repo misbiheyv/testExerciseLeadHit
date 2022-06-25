@@ -137,16 +137,5 @@ export default {
     display: block;
 }
 
-@keyframes trambling-animation {
-    0%, 50%, 100% {
-        transform: rotate(0deg);
-    }
-    10%, 30% {
-        transform: rotate(-5deg);
-    }
-    20%, 40% {
-        transform: rotate(5deg);
-    }
-}
 
 </style>
