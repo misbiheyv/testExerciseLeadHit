@@ -1,24 +1,31 @@
-# leadhit
+# Тестовое задание leadHit
 
-## Project setup
-```
-npm install
-```
+Тестовое задание на вакансию Frontend разработчика leadHit
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+# Настройка окружения. Установка модулей и зависимостей
 
-### Lints and fixes files
-```
-npm run lint
+1. Если у вас не установлена NodeJS - установите, используя nvm или перейдите по ссылке и установите Node(LTS) https://nodejs.org/en/
+
+2. Для проверки корректности установки, запустите команды ниже. Вы должны увидеть, какие версии node и npm установились к вам на компьютер
+
+
+```sh
+$ node -v
+v16.9.1
+$ npm -v
+7.21.1
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+3. Перейдите в папку с проектом и выполните команду указанную ниже. Дождитесь окончания установки зависимостей
+```sh
+$ npm install
+```
+# Отлично! Теперь все зависимости скачны и установленны, теперь можете собрать и запустить проект
+
+В папке с проектом выполните команду, приведенную нижу. Приложение будет развернуто на 8080 порте
+```sh
+$ npm run serve
+```
+# Чтобы открыть приложение, перейдите по ссылке 
+http://localhost:8080/
