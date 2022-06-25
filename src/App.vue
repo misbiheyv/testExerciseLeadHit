@@ -85,13 +85,16 @@ h6 {
 
 * {
   font-family: Roboto, Roboto, Helvetica, Arial, sans-serif;
+  color: rgb(44, 50, 54);
+  line-height: 130%;
+  font-weight: 500;
 }
 #main__wrapper {
 	min-height: 100vh;
 	background-color: #f0f0f2;
-
-	display: flex;
-    justify-content: center;
-    align-items: center;
+}
+.page-title {
+    font-weight: 700;
+    font-size: 28px;
 }
 </style>

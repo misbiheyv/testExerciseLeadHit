@@ -1,6 +1,6 @@
 <template>
     <div class="auth__container">
-        <h1 class="auth__title">LeadHit</h1>
+        <h1 class="page-title auth__title">LeadHit</h1>
 
         <form class="auth-form">
             <input 
@@ -68,14 +68,14 @@ export default {
 </script>
 
 <style scoped>
-
-.auth__title {
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 130%;
-    color: rgb(44, 50, 54);
+.auth__container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
-
 .auth__title { margin-bottom: 10px; }
 .auth-form>*:not(:first-child) { margin-top: 10px; }
 .auth-form> .error{ margin-top: 0px; }
@@ -107,7 +107,7 @@ export default {
     width: 100%;
     min-height: 46px;
 
-    background: #FF4402;
+    background: #994df7;
     border-radius: 4px;
 
     color: white;
@@ -118,16 +118,17 @@ export default {
     transition: all .3s ease;
 }
 .auth-form__button:hover {
-    background: #ee6230;
+    background: #e6c8fa;
+    color: #994df7;
 }
 
 .error {
     position: relative;
     width: 100%;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 15px;
     height: 15px;
-    font-weight: 500;
+
     color: #ff714d;
     display: none;
 }

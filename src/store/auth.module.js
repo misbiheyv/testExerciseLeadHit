@@ -20,15 +20,22 @@ export const auth = {
                 return {success: false, error: 'Unknown'}
             }
         },
-        saveId(_, siteId) {
-            localStorage.setItem('leadhit-site-id', siteId)
+        saveId({ state }, siteId) {
+            localStorage.setItem(state.ID_KEY, siteId)
         }
     },
     getters: {
+        isAuthorized(state) {
+            const id = localStorage.getItem(state.ID_KEY)
+
+            if (id) return true
+            return false
+        }
     },
     mutations: {
     },
     state: {
-        LOGIN_URL: 'https://track-api.leadhit.io/client/test_auth'
+        LOGIN_URL: 'https://track-api.leadhit.io/client/test_auth',
+        ID_KEY: 'leadhit-site-id'
     }
 }
